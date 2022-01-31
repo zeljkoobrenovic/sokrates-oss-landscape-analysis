@@ -8,8 +8,8 @@ const exportPullRequestsLinePrefix = 'node ../../scripts/config-pulls/get-pulls.
 
 let envVariables = '';
 
-envVariables += 'export SOKRATES_JAR="' + config.sokratesJarFilePath +'"\n';
-envVariables += 'export GITHUB_URL="' + config.githubCloneUrl +'"\n';
+envVariables += 'export SOKRATES_JAR="' + config.sokratesJarFilePath + '"\n';
+envVariables += 'export GITHUB_URL="' + config.githubCloneUrl + '"\n';
 
 const cloneScriptsFolder = '../generated/clone-scripts/';
 const analysisScriptsFolder = '../generated/analysis-scripts/';
@@ -56,7 +56,9 @@ function createAnalysisScripts(org, activeRepos) {
             + description + "' '"
             + repo.pushed_at + "'";
         runAnalysisScript += line + "\n";
-        fs.writeFileSync(analysisScriptsFolder + 'run-analysis-' + org + ".sh", runAnalysisScript);
+        fs.writeFileSync(analysisScriptsFolder + 'run-analysis-' + org + ".sh", runAnalysisScript + '\n' +
+            'cd ../../../analysis-artifacts/reports/' + org + '\n' +
+            'java -jar $SOKRATES_JAR -Xmx28g updateLandscape\n' );
         console.log('analysis-scripts/' + repo.name);
     });
     analyzeAllScript += 'bash ' + analysisScriptFileName + '\n';

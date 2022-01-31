@@ -1,4 +1,4 @@
-export SOKRATES_JAR="/Users/zobrenovic/Documents/sokrates-oss/bin/sokrates-0.9.jar"
+export SOKRATES_JAR="<ENTER_SOKRATES_FOLDER>/sokrates-0.9.jar"
 export GITHUB_URL="https://github.com"
 
 node ../../scripts/config-pulls/get-pulls.js 'twitter' 'hadoop-lzo'
