@@ -1,16 +1,16 @@
 const https = require('https');
 const fs = require('fs');
-const github = JSON.parse(fs.readFileSync('../../../target/config/github.json'));
+const config = JSON.parse(fs.readFileSync('../config.json'));
 
-const token = 'token ' + github.token;
+const token = 'token ' + config.githubToken;
 const headers = {headers: {'user-agent': 'node.js', 'Authorization': token}};
 
-const gitRepoPrefix = github.apiURL + '/';
+const gitRepoPrefix = config.githubApiUrl + '/';
 
 function processPullRequestIndex(object, numbersMap, pulls, org, repo, save, download, page) {
     if (object && object.length && object.length > 0) {
         object.forEach(pullRequest => {
-            if (pullRequest.created_at > github.pullsCreatedAfter) {
+            if (pullRequest.created_at > config.pullsCreatedAfter) {
                 if (numbersMap[pullRequest.number] === undefined) {
                     numbersMap[pullRequest.number] = pullRequest.number;
                     const pullRequestObject = {
@@ -65,7 +65,7 @@ let pulls = [];
 const numbersMap = {};
 
 function save(org, repo) {
-    const orgFolder = '../../../target/pull-requests/' + org;
+    const orgFolder = '../../../analysis-artifacts/pull-requests/' + org;
     if (!fs.existsSync(orgFolder)) fs.mkdirSync(orgFolder, {recursive: true});
     const folder = orgFolder + '/' + repo;
     if (!fs.existsSync(folder)) fs.mkdirSync(folder, {recursive: true});

@@ -1,8 +1,7 @@
-var https = require('https');
 var fs = require('fs');
 var path = require('path');
 
-const root = '../../../target/pull-requests';
+const root = '../../../analysis-artifacts/pull-requests';
 
 const average = function (array, length) {
     if (length && array.length > length) {

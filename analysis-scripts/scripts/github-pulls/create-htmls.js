@@ -1,12 +1,10 @@
-var https = require('https');
 var fs = require('fs');
-var path = require('path');
 
 const colorOpen = '#2da44e';
 const colorClosed = '#cf222e';
 const colorMerged = '#8250df';
 
-const root = '../../../target/pull-requests';
+const root = '../../../analysis-artifacts/pull-requests';
 
 const index = JSON.parse(fs.readFileSync(root + '/index.json'));
 
