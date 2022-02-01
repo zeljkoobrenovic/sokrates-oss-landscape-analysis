@@ -1,27 +1,28 @@
 ### About
 
-This project provides a template you can use to analyze source code of GitHub organizations.
+This project provides a template you can use to analyze source code with [Sokrates](https://sokrates.dev) of all repositories in any GitHub organization.
 
 ### The Concept
 
-The project analyzes all repositories in a given GitHub organization. For each repository, it creates 
-a detailed project report. It puts all reports in a folder, where you can run sokrates updateLandscape 
-command to create a landscape overview of the whole organization.
+The project analyzes all repositories in given GitHub organizations. For each repository, it creates a detailed project report. It puts all reports in a folder, where you can run `sokrates updateLandscape` command to create a landscape overview of the whole organization (volume, project trends, team topologies...).
 
 ### Pre-requirements
 
-- Latest version of Sokrates CLI
-- Java 11 to run Sokrates CLI
-- Graphviz (optional, but highly recommended as it significantly improves the performance of Sokrates graph rendering)
+- Latest version of [Sokrates](https://sokrates.dev) CLI
+- Java 11 to run [Sokrates](https://sokrates.dev) CLI
+- [Graphviz](https://graphviz.org/) (optional, but highly recommended as it significantly improves the performance of Sokrates graph rendering)
 - Recent version of Node.js to run GitHub API and code generation scripts
 - An environment (e.g. Linux, MacOS...) that can run BASH (.sh) scripts
 - Enough space on disk to store zipped version of all repos and generated Sokrates reports (several GBs at least)
 
 ### Install & Run
 
-- Clone this repo <pre>git clone https://github.com/zeljkoobrenovic/sokrates-oss-landscape-analysis.git</pre>
-- Open **analysis-scripts/config.json**, add you GitHub access token and the full path to the downloaded Sokrates CLI JAR file. Change GitHub instance and API URLs (by default configuration points to github.com, but you can use this project with your organizational GitHub instances as well).
-- From the root of the cloned repositories run: <pre>cd sokrates-oss-landscape-analysis<br>bash run.sh</pre>
+- Clone this repo, and go to the cloned folder
+  <pre>git clone https://github.com/zeljkoobrenovic/sokrates-oss-landscape-analysis.git
+  cd sokrates-oss-landscape-analysis</pre>
+
+- Open **analysis-scripts/config.json**, add you **GitHub access token** and the full **path to the downloaded Sokrates CLI JAR file**. Change GitHub instance and API URLs (by default configuration points to github.com, but you can use this project with your organizational GitHub instances as well).
+- From the root of the cloned repositories run: <pre>bash run.sh</pre>
 - Depending on the size of the organization the analysis may take minutes or several hours
 - The analysis will create the **analysis-artifacts** folder with the following sub-folders:
   - **archived-repos**, where zipped sources code used as an input for analyses is stored
