@@ -56,10 +56,11 @@ function createAnalysisScripts(org, activeRepos) {
             + description + "' '"
             + repo.pushed_at + "'";
         runAnalysisScript += line + "\n";
-        fs.writeFileSync(analysisScriptsFolder + 'run-analysis-' + org + ".sh", runAnalysisScript + '\n' +
+        let scriptPath = analysisScriptsFolder + 'run-analysis-' + org + '.sh';
+        fs.writeFileSync(scriptPath, runAnalysisScript + '\n' +
             'cd ../../../analysis-artifacts/reports/' + org + '\n' +
-            'java -jar $SOKRATES_JAR -Xmx28g updateLandscape\n' );
-        console.log('analysis-scripts/' + repo.name);
+            'java -jar $SOKRATES_JAR -Xmx28g updateLandscape\n');
+        console.log(scriptPath);
     });
     analyzeAllScript += 'bash ' + analysisScriptFileName + '\n';
     fs.writeFileSync(analysisScriptsFolder + 'run-all.sh', analyzeAllScript);
@@ -72,8 +73,9 @@ function createCloneAndZipScripts(org, activeRepos) {
     activeRepos.forEach(repo => {
         const line = cloneAndDownloadLinePrefix + "'" + org + "' '" + repo.name + "' '" + repo.pushed_at + "'";
         cloneAndZipScript += line + "\n";
-        fs.writeFileSync(cloneScriptsFolder + 'clone-and-zip-' + org + ".sh", cloneAndZipScript);
-        console.log('clone-scripts/' + repo.name);
+        const scriptPath = cloneScriptsFolder + 'clone-and-zip-' + org + '.sh';
+        fs.writeFileSync(scriptPath, cloneAndZipScript);
+        console.log(scriptPath);
     });
     cloneAllScript += 'bash ' + cloneScriptFileName + '\n';
     cloneAllScriptParallel += 'bash ' + cloneScriptFileName + ' &\n';
@@ -88,8 +90,9 @@ function createExportPullRequestsScripts(org, activeRepos) {
     activeRepos.forEach(repo => {
         const line = exportPullRequestsLinePrefix + "'" + org + "' '" + repo.name + "'";
         script += line + "\n";
-        fs.writeFileSync(pullRequestsScriptsFolder + 'export-pull-requests-' + org + ".sh", script);
-        console.log('pull-requests/' + repo.name);
+        let scriptPath = pullRequestsScriptsFolder + 'export-pull-requests-' + org + '.sh';
+        fs.writeFileSync(scriptPath, script);
+        console.log(scriptPath);
     });
     runAllPullRequestsScript += 'bash ' + fileName + '\n';
     fs.writeFileSync(pullRequestsScriptsFolder + 'run-all.sh', runAllPullRequestsScript);
