@@ -61,7 +61,7 @@ function createAnalysisScripts(org, activeRepos) {
         runAnalysisScript += line + "\n";
         fs.writeFileSync(scriptPath, runAnalysisScript + '\n' +
             'cd ../../../analysis-artifacts/reports/' + org + '\n' +
-            'java -jar $SOKRATES_JAR -Xmx28g updateLandscape\n');
+            'java -jar $SOKRATES_JAR -Xmx' + config.javaXmx + ' updateLandscape\n');
     });
 
     analyzeAllScript += 'bash ' + analysisScriptFileName + '\n';

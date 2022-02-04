@@ -5,6 +5,7 @@
   "reposUpdatedAfter": "2021-01-01",
   "pullsCreatedAfter": "2020-01-01",
   "sokratesJarFilePath": "<ENTER_SOKRATES_FOLDER>/sokrates-0.9.jar",
+  "javaXmx": "48g",
   "githubOrgs": [
     "google",
     "spotify",
