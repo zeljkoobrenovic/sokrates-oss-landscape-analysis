@@ -5,6 +5,9 @@ const colorClosed = '#cf222e';
 const colorMerged = '#8250df';
 
 const root = '../../../analysis-artifacts/pull-requests';
+const htmlRoot = root + '/_html';
+
+if (!fs.existsSync(htmlRoot)) fs.mkdirSync(htmlRoot, {recursive: true});
 
 const index = JSON.parse(fs.readFileSync(root + '/index.json'));
 
@@ -236,7 +239,7 @@ function createOrgHTML(org, addAllRepos) {
 
     html += '\n</body>\n</html>';
 
-    fs.writeFileSync(root + '/_html/' + (addAllRepos ? 'index' : org.org) + '.html', html);
+    fs.writeFileSync(htmlRoot + (addAllRepos ? 'index' : org.org) + '.html', html);
 }
 
 index.orgs.forEach(org => {
