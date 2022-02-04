@@ -11,8 +11,6 @@ if (!fs.existsSync(htmlRoot)) fs.mkdirSync(htmlRoot, {recursive: true});
 
 const index = JSON.parse(fs.readFileSync(root + '/index.json'));
 
-console.log(index.orgs);
-
 const htmlPrefix = '<html>\n' +
     '<head>\n' +
     '  <meta charset="utf-8">\n' +
