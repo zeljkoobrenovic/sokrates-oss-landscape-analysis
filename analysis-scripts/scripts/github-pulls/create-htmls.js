@@ -239,7 +239,7 @@ function createOrgHTML(org, addAllRepos) {
 
     html += '\n</body>\n</html>';
 
-    fs.writeFileSync(htmlRoot + (addAllRepos ? 'index' : org.org) + '.html', html);
+    fs.writeFileSync(htmlRoot + '/' + (addAllRepos ? 'index' : org.org) + '.html', html);
 }
 
 index.orgs.forEach(org => {
