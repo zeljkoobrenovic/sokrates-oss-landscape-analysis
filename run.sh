@@ -3,8 +3,8 @@ cd analysis-scripts/github-repos-finder
 node get-repos.js
 
 rm ../generated/clone-scripts/export-pull-requests-*
-rm ../analysis-scripts/run-analysis-*
-rm ../pull-requests-scripts/clone-and-zip-*
+rm ../generated/analysis-scripts/run-analysis-*
+rm ../generated/pull-requests-scripts/clone-and-zip-*
 
 node generate-sh-scripts.js
 
@@ -17,3 +17,6 @@ bash run-all.sh
 
 cd ../pull-requests-scripts
 bash run-all.sh
+cd ../../scripts/github-pulls
+node create-index.js
+node create-htmls.js
