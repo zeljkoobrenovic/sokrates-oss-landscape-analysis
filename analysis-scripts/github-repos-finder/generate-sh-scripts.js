@@ -44,6 +44,9 @@ function notIgnored(org, repo) {
 function createAnalysisScripts(org, activeRepos) {
     let runAnalysisScript = envVariables + '\n';
     const analysisScriptFileName = 'run-analysis-' + org + '.sh';
+    const scriptPath = analysisScriptsFolder + 'run-analysis-' + org + '.sh';
+    console.log(scriptPath);
+
     activeRepos.forEach(repo => {
         let description = repo.description ? repo.description : " ";
         description = description.replace(/\)/g, "&rpar;");
@@ -56,12 +59,11 @@ function createAnalysisScripts(org, activeRepos) {
             + description + "' '"
             + repo.pushed_at + "'";
         runAnalysisScript += line + "\n";
-        let scriptPath = analysisScriptsFolder + 'run-analysis-' + org + '.sh';
         fs.writeFileSync(scriptPath, runAnalysisScript + '\n' +
             'cd ../../../analysis-artifacts/reports/' + org + '\n' +
             'java -jar $SOKRATES_JAR -Xmx28g updateLandscape\n');
-        console.log(scriptPath);
     });
+
     analyzeAllScript += 'bash ' + analysisScriptFileName + '\n';
     fs.writeFileSync(analysisScriptsFolder + 'run-all.sh', analyzeAllScript);
 }
@@ -70,13 +72,15 @@ function createCloneAndZipScripts(org, activeRepos) {
     let cloneAndZipScript = envVariables + '\n';
 
     const cloneScriptFileName = 'clone-and-zip-' + org + '.sh';
+    const scriptPath = cloneScriptsFolder + 'clone-and-zip-' + org + '.sh';
+    console.log(scriptPath);
+
     activeRepos.forEach(repo => {
         const line = cloneAndDownloadLinePrefix + "'" + org + "' '" + repo.name + "' '" + repo.pushed_at + "'";
         cloneAndZipScript += line + "\n";
-        const scriptPath = cloneScriptsFolder + 'clone-and-zip-' + org + '.sh';
         fs.writeFileSync(scriptPath, cloneAndZipScript);
-        console.log(scriptPath);
     });
+
     cloneAllScript += 'bash ' + cloneScriptFileName + '\n';
     cloneAllScriptParallel += 'bash ' + cloneScriptFileName + ' &\n';
     fs.writeFileSync(cloneScriptsFolder + 'run-all.sh', cloneAllScript);
@@ -87,13 +91,15 @@ function createExportPullRequestsScripts(org, activeRepos) {
     let script = envVariables + '\n';
 
     const fileName = 'export-pull-requests-' + org + '.sh';
+    const scriptPath = pullRequestsScriptsFolder + 'export-pull-requests-' + org + '.sh';
+    console.log(scriptPath);
+
     activeRepos.forEach(repo => {
         const line = exportPullRequestsLinePrefix + "'" + org + "' '" + repo.name + "'";
         script += line + "\n";
-        let scriptPath = pullRequestsScriptsFolder + 'export-pull-requests-' + org + '.sh';
         fs.writeFileSync(scriptPath, script);
-        console.log(scriptPath);
     });
+
     runAllPullRequestsScript += 'bash ' + fileName + '\n';
     fs.writeFileSync(pullRequestsScriptsFolder + 'run-all.sh', runAllPullRequestsScript);
 }
@@ -101,6 +107,7 @@ function createExportPullRequestsScripts(org, activeRepos) {
 const createScripts = function (org) {
     const reposFile = '../generated/data/config-repos/' + org + "-active.json";
     if (!fs.existsSync(reposFile)) {
+        console.log(reposFile + ' does not exist.');
         return;
     }
     const activeRepos = JSON.parse(fs.readFileSync(reposFile, 'utf8'))
