@@ -6,7 +6,7 @@
   "pullsCreatedAfter": "2020-01-01",
   "sokratesJarFilePath": "<ENTER_SOKRATES_FOLDER>/sokrates-0.9.jar",
   "githubOrgs": [
-    "<ENTER_YOUR_GITHUB_ORG_NAME>"
+    "apple"
   ],
   "ignore": [
     {

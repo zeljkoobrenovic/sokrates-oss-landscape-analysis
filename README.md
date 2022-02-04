@@ -8,8 +8,9 @@ The project analyzes all repositories in given GitHub organizations. For each re
 
 ### Pre-requirements
 
-- Latest version of [Sokrates](https://sokrates.dev) CLI
-- Java 11 to run [Sokrates](https://sokrates.dev) CLI
+- Latest version of [Sokrates](https://sokrates.dev) CLI<pre>curl https://d2bb1mtyn3kglb.cloudfront.net/builds/sokrates-LATEST.jar --output sokrates-LATEST.jar</pre>
+- Java 11 to run [Sokrates](https://sokrates.dev) CLI, e.g.:
+- unzip
 - [Graphviz](https://graphviz.org/) (optional, but highly recommended as it significantly improves the performance of Sokrates graph rendering)
 - Recent version of Node.js to run GitHub API and code generation scripts
 - An environment (e.g., Linux, MacOS...) that can run BASH (.sh) scripts

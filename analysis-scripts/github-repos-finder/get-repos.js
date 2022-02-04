@@ -12,6 +12,21 @@ const headers = {headers: {'user-agent': 'node.js', 'Authorization': token}};
 let reposCount = 0;
 let reposCountActive = 0;
 
+const shouldIgnore = function(org, repo) {
+    let ignore = false;
+    config.ignore.forEach(ignoreRule => {
+        if (ignoreRule.org === '' || org.match(new RegExp(ignoreRule.org, 'gi'))) {
+            if (ignoreRule.repo === '' || repo.match(new RegExp(ignoreRule.repo, 'gi'))) {
+                console.log('Ignoring ' + org + ' / ' + repo);
+                ignore = true;
+                return;
+            }
+        }
+    });
+
+    return ignore;
+}
+
 const saveRepositories = function (org, next) {
     let repos = [];
     const download = function (page) {
@@ -35,7 +50,6 @@ const saveRepositories = function (org, next) {
 
                     const githubRepoDataFolder = '../generated/data/config-repos/';
                     if (!fs.existsSync(githubRepoDataFolder)) fs.mkdirSync(githubRepoDataFolder, {recursive: true});
-                    fs.writeFileSync(githubRepoDataFolder + org + '-raw.json', JSON.stringify(repos, null, 2));
                     let mappedData = repos.map(repo => {
                         return {
                             name: repo.name,
@@ -51,19 +65,22 @@ const saveRepositories = function (org, next) {
                             watchers: repo.watchers
                         }
                     });
-                    fs.writeFileSync(githubRepoDataFolder + org + '.json', JSON.stringify(mappedData, null, 2));
 
-                    let activeData = mappedData
+                    const activeData = mappedData
                         .filter(repo => repo.language !== null)
                         .filter(repo => !repo.archived)
-                        .filter(repo => repo.pushed_at >= startDate);
-                    fs.writeFileSync(githubRepoDataFolder + org + '-active.json', JSON.stringify(activeData, null, 2));
+                        .filter(repo => repo.pushed_at >= startDate)
+                        .filter(repo => !shouldIgnore(org, repo.name));
+
+                    fs.writeFileSync(githubRepoDataFolder + org + '-active.json',
+                        JSON.stringify(activeData, null, 2));
 
                     reposCount += reposPage.length;
                     reposCountActive += reposPage
                         .filter(repo => repo.language !== null)
                         .filter(repo => !repo.archived)
-                        .filter(repo => repo.pushed_at >= startDate).length;
+                        .filter(repo => repo.pushed_at >= startDate)
+                        .filter(repo => !shouldIgnore(org, repo.name)).length;
 
                     download(page + 1);
                 } else {

@@ -1,4 +1,5 @@
 TIMESTAMP_FILE=../../../analysis-artifacts/archived-repos/$1/$2/timestamps/last_pushed_$3
+REPO_ZIP_FILE=../../../analysis-artifacts/archived-repos/$1/$2/repo.zip
 if [ -f "$TIMESTAMP_FILE" ]; then
     echo "$1 / $2 [$3 snapshot] is already cloned."
     exit 1

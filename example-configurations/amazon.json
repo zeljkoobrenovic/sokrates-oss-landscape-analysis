@@ -1,0 +1,43 @@
+{
+  "githubCloneUrl": "https://github.com",
+  "githubApiUrl": "https://api.github.com",
+  "githubToken": "<ENTER_YOUR_GITHUB_TOKEN>",
+  "reposUpdatedAfter": "2021-01-01",
+  "pullsCreatedAfter": "2020-01-01",
+  "sokratesJarFilePath": "<ENTER_SOKRATES_FOLDER>/sokrates-0.9.jar",
+  "githubOrgs": [
+    "ajaxorg",
+    "amazon-connect",
+    "amazon-research",
+    "amazonlinux",
+    "amzn",
+    "aws",
+    "aws-actions",
+    "aws-amplify",
+    "aws-cloudformation",
+    "aws-deepracer",
+    "aws-ia",
+    "aws-observability",
+    "aws-quickstart",
+    "aws-robotics",
+    "aws-samples",
+    "aws-solutions",
+    "awsdocs",
+    "awslabs",
+    "boto",
+    "bottlerocket-os",
+    "cdklabs",
+    "corretto",
+    "firecracker-microvm",
+    "freertos",
+    "neo-ai",
+    "opensearch-project",
+    "projen"
+  ],
+  "ignore": [
+    {
+      "org": "",
+      "repo": ".*[-]builds"
+    }
+  ]
+}

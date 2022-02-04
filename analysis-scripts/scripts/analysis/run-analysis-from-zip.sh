@@ -1,4 +1,5 @@
 TIMESTAMP_FILE=../../../analysis-artifacts/reports/$1/$2/timestamps/last_pushed_$5
+REPORT_INDEX_FILE=../../../analysis-artifacts/reports/$1/$2/html/index.html
 if [ -f "$TIMESTAMP_FILE" ]; then
     echo "$1 / $2 [$3 snapshot] is already analyzed."
     exit 1
@@ -23,7 +24,7 @@ cp ../../../analysis-scripts/scripts/analysis/sokrates_conventions.json ../../..
 cd ../../../analysis-artifacts/temp/analysis_$1_$2
 
 # checkout the code
-unzip ../../archived-repos/$1/$2/repo.zip
+unzip ../../../analysis-artifacts/archived-repos/$1/$2/repo.zip
 
 echo "java -jar -Xmx10g $SOKRATES_JAR init -conventionsFile sokrates_conventions.json -name '$1 / $2' ..."
 java -jar $SOKRATES_JAR init -conventionsFile sokrates_conventions.json -name "$1 / $2" -description "$4" -addLink $3 'GitHub Repo' -logoLink "https://avatars.githubusercontent.com/$1"

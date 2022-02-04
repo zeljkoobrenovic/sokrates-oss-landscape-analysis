@@ -3,7 +3,7 @@ cd analysis-scripts/github-repos-finder
 node get-repos.js
 node generate-sh-scripts.js
 
-cd ../../generated/clone-scripts
+cd ../generated/clone-scripts
 bash run-all.sh
 # or run-all-parallel.sh, to run cloning or repos for multiple organization in parallel
 

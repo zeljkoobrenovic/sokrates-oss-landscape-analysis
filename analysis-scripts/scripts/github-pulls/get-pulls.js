@@ -1,6 +1,6 @@
 const https = require('https');
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('../config.json'));
+const config = JSON.parse(fs.readFileSync('../../config.json'));
 
 const token = 'token ' + config.githubToken;
 const headers = {headers: {'user-agent': 'node.js', 'Authorization': token}};

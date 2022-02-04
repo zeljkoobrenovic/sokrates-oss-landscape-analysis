@@ -4,7 +4,7 @@ const config = JSON.parse(fs.readFileSync('../config.json'));
 
 const runAnalysisLinePrefix = 'bash ../../scripts/analysis/run-analysis-from-zip.sh ';
 const cloneAndDownloadLinePrefix = 'bash ../../scripts/git/clone-and-zip.sh ';
-const exportPullRequestsLinePrefix = 'node ../../scripts/config-pulls/get-pulls.js ';
+const exportPullRequestsLinePrefix = 'node ../../scripts/github-pulls/get-pulls.js ';
 
 let envVariables = '';
 
