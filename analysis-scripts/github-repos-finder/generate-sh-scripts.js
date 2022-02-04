@@ -59,9 +59,10 @@ function createAnalysisScripts(org, activeRepos) {
             + description + "' '"
             + repo.pushed_at + "'";
         runAnalysisScript += line + "\n";
+        const xmx = config.javaXmx ?  ' -Xmx' + config.javaXmx : '';
         fs.writeFileSync(scriptPath, runAnalysisScript + '\n' +
             'cd ../../../analysis-artifacts/reports/' + org + '\n' +
-            'java -jar $SOKRATES_JAR -Xmx' + config.javaXmx + ' updateLandscape\n');
+            'java -jar ' + xmx + ' $SOKRATES_JAR updateLandscape\n');
     });
 
     analyzeAllScript += 'bash ' + analysisScriptFileName + '\n';
