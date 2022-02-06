@@ -77,8 +77,8 @@ const download = function (org, repo, page) {
     console.log(url);
 
     https.get(url, headers, function (response) {
-	        console.log('rate limit: ' + JSON.stringify(response.headers['x-ratelimit-limit']));
-  		    console.log('  - remaining: ' + JSON.stringify(response.headers['x-ratelimit-remaining']));
+	        console.log('GitHub API rate limit: ' + JSON.stringify(response.headers['x-ratelimit-limit']) +
+                ',  remaining: ' + JSON.stringify(response.headers['x-ratelimit-remaining']));
             let data = '';
 
             response.on('data', (chunk) => {

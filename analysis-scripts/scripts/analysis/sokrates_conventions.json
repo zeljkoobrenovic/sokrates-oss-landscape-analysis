@@ -1,386 +1,72 @@
 {
-  "extensions": {
-    "onlyInclude": [],
-    "alwaysExclude": []
+  "extensions" : {
+    "onlyInclude" : [ ],
+    "alwaysExclude" : [ ]
   },
-  "maxLineLength": 1000,
-  "ignoreStandardScopingConventions": false,
-  "removeStandardConcerns": false,
-  "ignoredFilesConventions": [
-    {
-      "pathPattern": ".*/prettify[.]js",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/jboss/jboss\\-eap/standalone/deployments/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/www/html/http/static/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/assets/lib/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Library"
-    },
-    {
-      "pathPattern": ".*/(vuejs|js/lib)/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/ext[-]js/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "ExtJS library"
-    },
-    {
-      "pathPattern": ".*/assets/lib/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Library"
-    },
-    {
-      "pathPattern": ".*/ext[-]all.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "ExtJS library"
-    },
-    {
-      "pathPattern": ".*[-]debug[.]js",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Dev build"
-    },
-    {
-      "pathPattern": ".*/webapp/static/js/lib/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "3rd party JS libraries"
-    },
-    {
-      "pathPattern": ".*/webapp-static/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "3rd party JS libraries"
-    },
-    {
-      "pathPattern": ".*/ThirdParty/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "3rd library libraries"
-    },
-    {
-      "pathPattern": ".*/node[-]binary/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "ExtJS library"
-    },
-    {
-      "pathPattern": ".*/sokrates_conventions[.]json",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Sokrates scoping conventions"
-    },
-    {
-      "pathPattern": ".*[.][0-9]+",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Binary files (e.g. multipart archives)"
-    },
-    {
-      "pathPattern": ".*/sokrates_conventions[.]json",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Sokrates analysis config file"
-    },
-    {
-      "pathPattern": ".*[.]txt",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Text files"
-    },
-    {
-      "pathPattern": ".*/src/autoact-grails-plugins/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Grails plugin files"
-    },
-    {
-      "pathPattern": ".*/require[-]jquery[.]js",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS library"
-    },
-    {
-      "pathPattern": ".*/less[-]1[.]1[.]5[.]js",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS library"
-    },
-    {
-      "pathPattern": ".*/webapp/static/extjs/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS library"
-    },
-    {
-      "pathPattern": ".*/webapp/resources/js/lib/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS library"
-    },
-    {
-      "pathPattern": ".*/js/library/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS library"
-    },
-    {
-      "pathPattern": ".*/static/js/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS library"
-    },
-    {
-      "pathPattern": ".*/bundle[.]js",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS library"
-    },
-    {
-      "pathPattern": ".*/(css|scss|jsf)/lib/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Library"
-    },
-    {
-      "pathPattern": ".*/bootstrap[-].*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Library"
-    },
-    {
-      "pathPattern": ".*/mdp[-]price[-]api2/notebooks/.*[.](html)",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Generated HTML"
-    },
-    {
-      "pathPattern": ".*[.]slides[.](html)",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Generated HTML"
-    },
-    {
-      "pathPattern": ".*venv/(lib|lib64)/python.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "3rd party Python libraries"
-    },
-    {
-      "pathPattern": ".*Modules/External/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "External iOS libraries."
-    }
-  ],
-  "testFilesConventions": [
-    {
-      "pathPattern": "",
-      "contentPattern": ".*/simpletest/.*",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*[-]testcontent.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/sites/all/libraries/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/src/it/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Integration tests"
-    },
-    {
-      "pathPattern": ".*/mock[-].*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Mocks"
-    },
-    {
-      "pathPattern": ".*(/|[-])selenium/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Selenium tests"
-    },
-    {
-      "pathPattern": ".*UnitTests/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Tests"
-    },
-    {
-      "pathPattern": ".*TestUtils/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Tests"
-    }
-  ],
-  "generatedFilesConventions": [
-    {
-      "pathPattern": ".*/static-frontend/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Static frontend files"
-    }
-  ],
-  "buildAndDeploymentFilesConventions": [
-    {
-      "pathPattern": ".*/src/main/webapp/resources/js/dev/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS-Dev files"
-    },
-    {
-      "pathPattern": ".*/node[-]dev/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS-Dev files"
-    },
-    {
-      "pathPattern": ".*/[.]mvn/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": "JS-Dev files"
-    }
-  ],
-  "otherFilesConventions": [
-    {
-      "pathPattern": ".*/assets/scss/bootstrap/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/sites/all/themes/(ember|bootstrap)/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*/sites/all/libraries/.*",
-      "contentPattern": "",
-      "exception": false,
-      "note": ""
-    },
-    {
-      "pathPattern": ".*[.](xml|xsd|robot|sql|pgsql|dashboard|profile|ipynb|raml|avsc|al)",
-      "contentPattern": "",
-      "exception": false,
-      "note": "Configuration and data files"
-    }
-  ],
-  "concerns": [
-  ],
-  "ignoreContributors": [
-    "commited[-]by[-]bot.*",
-    "jenkins.*",
-    "root[@].*",
-    "bot[@].*",
-    "noreply[@].*",
-    "idontknow[@].*",
-    ".*GITHUBBOT.*",
-    ".*\\[bot\\].*",
-    "[=][@].*",
-    ".*[.]github[@].*",
-    ".*[-]bot[@].*",
-    "None",
-    "git[@].*", 
-    "github[@].*", 
-    ".*[.]git[-].*" , 
-    ".*[.]git[@].*",
-    "clubify[@].*",
-    "travis.*"
-  ],
-  "analysis": {
-    "skipDuplication": false,
-    "skipDependencies": true,
-    "cacheSourceFiles": false,
-    "locDuplicationThreshold": 100000,
-    "maxLineLength": 1000,
-    "maxTopListSize": 20,
-    "analyzerOverrides": [],
-    "customHtmlReportHeaderFragment" : "<!-- Global site tag (gtag.js) - Google Analytics -->\n    <script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-129891352-1\"></script>\n  <script>\n    window.dataLayer = window.dataLayer || [];\n\n    function gtag() {\n      dataLayer.push(arguments);\n    }\n\n    gtag('js', new Date());\n    gtag('config', 'UA-129891352-1');\n  </script>"
-  },
-    "fileHistoryAnalysis" : {
+  "ignoreStandardScopingConventions" : false,
+  "removeStandardConcerns" : false,
+  "logoLink" : "",
+  "ignoredFilesConventions" : [ ],
+  "testFilesConventions" : [ ],
+  "generatedFilesConventions" : [ ],
+  "buildAndDeploymentFilesConventions" : [ ],
+  "otherFilesConventions" : [ ],
+  "concerns" : [ ],
+  "ignoreContributors" : [ ],
+  "componentsFolderDepth" : 1,
+  "minComponentsCount" : 0,
+  "ignoreStandardControls" : false,
+  "goalsAndControls" : [ ],
+  "fileHistoryAnalysis" : {
     "importPath" : "../git-history.txt",
-    "ignoreContributors" : [ ],
-    "transformContributorEmails" : [  ]
+    "ignoreContributors" : [ ".*\\[bot\\].*" ],
+    "anonymizeContributors" : false,
+    "transformContributorEmails" : [ ]
   },
-  "componentsFolderDepth": 1,
-  "minComponentsCount": 10,
-  "logoLink": "",
-  "ignoreStandardControls": true,
-  "goalsAndControls": [
-    {
-      "goal": "Keep the system simple and easy to change",
-      "description": "Aim at keeping the system size modest (less than 200,000 LOC is good), duplication low (less than 5% is good), files small (no files longer than 1000 LOC is good), and units simple (no units with more than 25 decision points is good).",
-      "controls": [
-        {
-          "metric": "LINES_OF_CODE_MAIN",
-          "description": "Total number of lines of main code",
-          "desiredRange": {
-            "min": "0",
-            "max": "200000",
-            "tolerance": "50000"
-          }
-        },
-        {
-          "metric": "DUPLICATION_PERCENTAGE",
-          "description": "System duplication",
-          "desiredRange": {
-            "min": "0",
-            "max": "5",
-            "tolerance": "5"
-          }
-        },
-        {
-          "metric": "VERY_HIGH_RISK_FILE_SIZE_COUNT",
-          "description": "The number of very large files",
-          "desiredRange": {
-            "min": "0",
-            "max": "0",
-            "tolerance": "5"
-          }
-        },
-        {
-          "metric": "CONDITIONAL_COMPLEXITY_VERY_HIGH_RISK_COUNT",
-          "description": "Number of very complex units",
-          "desiredRange": {
-            "min": "0",
-            "max": "0",
-            "tolerance": "5"
-          }
-        }
-      ]
-    }
-  ]
+  "analysis" : {
+    "skipDuplication" : false,
+    "skipDependencies" : false,
+    "cacheSourceFiles" : true,
+    "saveCodeFragments" : true,
+    "maxFileSizeBytes" : 1000000,
+    "maxLines" : 10000,
+    "maxLineLength" : 1000,
+    "maxTemporalDependenciesDepthDays" : 180,
+    "locDuplicationThreshold" : 10000000,
+    "minDuplicationBlockLoc" : 6,
+    "maxTopListSize" : 50,
+    "analyzerOverrides" : [ ],
+    "fileSizeThresholds" : {
+      "low" : 100,
+      "medium" : 200,
+      "high" : 500,
+      "veryHigh" : 1000
+    },
+    "fileAgeThresholds" : {
+      "low" : 30,
+      "medium" : 90,
+      "high" : 180,
+      "veryHigh" : 365
+    },
+    "fileUpdateFrequencyThresholds" : {
+      "low" : 5,
+      "medium" : 20,
+      "high" : 50,
+      "veryHigh" : 100
+    },
+    "unitSizeThresholds" : {
+      "low" : 10,
+      "medium" : 20,
+      "high" : 50,
+      "veryHigh" : 100
+    },
+    "conditionalComplexityThresholds" : {
+      "low" : 5,
+      "medium" : 10,
+      "high" : 25,
+      "veryHigh" : 50
+    },
+    "customHtmlReportHeaderFragment" : "",
+    "analyzeConcernOverlaps" : false
+  }
 }

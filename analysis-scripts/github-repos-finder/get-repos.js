@@ -33,7 +33,7 @@ const saveRepositories = function (org, next) {
         const url = gitRepoPrefix + org + '/repos?per_page=100&page=' + page;
         console.log(url);
         https.get(url, headers, function (response) {
-            console.log('rate limit: ' + response.headers['x-ratelimit-limit'] + ' API calls, ' +
+            console.log('GitHub API rate limit: ' + response.headers['x-ratelimit-limit'] + ' API calls, ' +
                 'remaining ' + response.headers['x-ratelimit-remaining'] + ' calls');
             let data = '';
 

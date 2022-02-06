@@ -8,8 +8,9 @@ const exportPullRequestsLinePrefix = 'node ../../scripts/github-pulls/get-pulls.
 
 let envVariables = '';
 
-envVariables += 'export SOKRATES_JAR="' + config.sokratesJarFilePath + '"\n';
-envVariables += 'export GITHUB_URL="' + config.githubCloneUrl + '"\n';
+envVariables += 'export SOKRATES_JAR_PATH="' + config.sokratesJarFilePath + '"\n';
+envVariables += 'export SOKRATES_GITHUB_URL="' + config.githubCloneUrl + '"\n';
+envVariables += 'export SOKRATES_JAVA_OPTIONS="' + config.javaOptions + '"\n';
 
 const cloneScriptsFolder = '../generated/clone-scripts/';
 const analysisScriptsFolder = '../generated/analysis-scripts/';
@@ -59,10 +60,9 @@ function createAnalysisScripts(org, activeRepos) {
             + description + "' '"
             + repo.pushed_at + "'";
         runAnalysisScript += line + "\n";
-        const xmx = config.javaXmx ?  ' -Xmx' + config.javaXmx : '';
         fs.writeFileSync(scriptPath, runAnalysisScript + '\n' +
             'cd ../../../analysis-artifacts/reports/' + org + '\n' +
-            'java -jar ' + xmx + ' $SOKRATES_JAR updateLandscape\n');
+            'java -jar $SOKRATES_JAVA_OPTIONS $SOKRATES_JAR_PATH updateLandscape\n');
     });
 
     analyzeAllScript += 'bash ' + analysisScriptFileName + '\n';

@@ -4,8 +4,8 @@
   "githubToken": "<ENTER_YOUR_GITHUB_TOKEN>",
   "reposUpdatedAfter": "2021-01-01",
   "pullsCreatedAfter": "2020-01-01",
-  "sokratesJarFilePath": "<ENTER_SOKRATES_FOLDER>/sokrates-0.9.jar",
-  "javaXmx": "28g",
+  "sokratesJarFilePath": "<ENTER_SOKRATES_FOLDER>/sokrates-LATEST.jar",
+  "javaOptions": "-Xmx28g",
   "githubOrgs": [
     "<ENTER_YOUR_GITHUB_ORG_NAME>"
   ],

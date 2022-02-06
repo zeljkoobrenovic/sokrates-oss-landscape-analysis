@@ -1,8 +1,11 @@
+# check if we have already analyzed the repository with the same timestamp
 TIMESTAMP_FILE=../../../analysis-artifacts/reports/$1/$2/timestamps/last_pushed_$5
 REPORT_INDEX_FILE=../../../analysis-artifacts/reports/$1/$2/html/index.html
-if [ -f "$TIMESTAMP_FILE" ]; then
-    echo "$1 / $2 [$3 snapshot] is already analyzed."
-    exit 1
+if [ -f "$REPORT_INDEX_FILE" ]; then
+  if [ -f "$TIMESTAMP_FILE" ]; then
+      echo "$1 / $2 [$3 snapshot] is already analyzed."
+      exit 1
+  fi
 fi
 
 mkdir ../../../analysis-artifacts
@@ -26,11 +29,11 @@ cd ../../../analysis-artifacts/temp/analysis_$1_$2
 # checkout the code
 unzip ../../../analysis-artifacts/archived-repos/$1/$2/repo.zip
 
-echo "java -jar -Xmx10g $SOKRATES_JAR init -conventionsFile sokrates_conventions.json -name '$1 / $2' ..."
-java -jar $SOKRATES_JAR init -conventionsFile sokrates_conventions.json -name "$1 / $2" -description "$4" -addLink $3 'GitHub Repo' -logoLink "https://avatars.githubusercontent.com/$1"
+# init analysis
+java -jar $SOKRATES_JAVA_OPTIONS $SOKRATES_JAR_PATH init -conventionsFile ../../scripts/analysis/sokrates_conventions.json -name "$1 / $2" -description "$4" -addLink $3 'GitHub Repo' -logoLink "https://avatars.githubusercontent.com/$1"
 
 # run analysis
-java -jar -Xmx28g $SOKRATES_JAR generateReports -timeout 9999
+java -jar $SOKRATES_JAVA_OPTIONS $SOKRATES_JAR_PATH generateReports -timeout 9999
 
 # Done analysis, now copy data
 

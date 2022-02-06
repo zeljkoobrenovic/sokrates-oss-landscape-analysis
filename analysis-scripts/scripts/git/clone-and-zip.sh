@@ -1,8 +1,11 @@
+# check if we have already cloned the repository with the same timestamp
 TIMESTAMP_FILE=../../../analysis-artifacts/archived-repos/$1/$2/timestamps/last_pushed_$3
 REPO_ZIP_FILE=../../../analysis-artifacts/archived-repos/$1/$2/repo.zip
-if [ -f "$TIMESTAMP_FILE" ]; then
-    echo "$1 / $2 [$3 snapshot] is already cloned."
-    exit 1
+if [ -f "$REPO_ZIP_FILE" ]; then
+  if [ -f "$TIMESTAMP_FILE" ]; then
+      echo "$1 / $2 [$3 snapshot] is already cloned."
+      exit 1
+  fi
 fi
 
 mkdir ../../../analysis-artifacts
@@ -17,7 +20,7 @@ cd ../../../analysis-artifacts/archived-repos/$1/$2
 echo $1 / $2
 
 # checkout the code
-git clone $GITHUB_URL/$1/$2.git temp_clone_dir
+git clone $SOKRATES_GITHUB_URL/$1/$2.git temp_clone_dir
 
 cd temp_clone_dir
 
@@ -25,8 +28,8 @@ cd temp_clone_dir
 # export git history
 echo 'Exporting git history...'
 # git ls-files -z | xargs -0 -n1 -I{} -- git log --date=short --format="%ad %ae %H {}" {} > git-history.txt
-echo "java -jar -Xmx10g $SOKRATES_JAR extractGitHistory"
-java -jar $SOKRATES_JAR extractGitHistory
+echo "sokrates extractGitHistory"
+java -jar $SOKRATES_JAVA_OPTIONS $SOKRATES_JAR_PATH extractGitHistory
 
 rm -rf .git
 
