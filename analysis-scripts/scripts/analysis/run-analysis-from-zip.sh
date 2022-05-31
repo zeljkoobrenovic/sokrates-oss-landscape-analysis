@@ -30,7 +30,7 @@ cd ../../../analysis-artifacts/temp/analysis_$1_$2
 unzip ../../../analysis-artifacts/archived-repos/$1/$2/repo.zip
 
 # init analysis
-java -jar $SOKRATES_JAVA_OPTIONS $SOKRATES_JAR_PATH init -conventionsFile ../../scripts/analysis/sokrates_conventions.json -name "$1 / $2" -description "$4" -addLink $3 'GitHub Repo' -logoLink "https://avatars.githubusercontent.com/$1"
+java -jar $SOKRATES_JAVA_OPTIONS $SOKRATES_JAR_PATH init -conventionsFile ../../../analysis-scripts/scripts/analysis/sokrates_conventions.json -name "$1 / $2" -description "$4" -addLink $3 'GitHub Repo' -logoLink "https://avatars.githubusercontent.com/$1"
 
 # run analysis
 java -jar $SOKRATES_JAVA_OPTIONS $SOKRATES_JAR_PATH generateReports -timeout 9999
