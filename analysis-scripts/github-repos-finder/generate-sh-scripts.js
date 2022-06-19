@@ -12,6 +12,22 @@ envVariables += 'export SOKRATES_JAR_PATH="' + config.sokratesJarFilePath + '"\n
 envVariables += 'export SOKRATES_GITHUB_URL="' + config.githubCloneUrl + '"\n';
 envVariables += 'export SOKRATES_JAVA_OPTIONS="' + config.javaOptions + '"\n';
 
+function getToday() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    return yyyy + '-' + mm + '-' + dd;
+}
+
+const todayString = getToday();
+
+envVariables += 'export SOKRATES_ANALYSIS_DATE="' + todayString + '"\n';
+
 const cloneScriptsFolder = '../generated/clone-scripts/';
 const analysisScriptsFolder = '../generated/analysis-scripts/';
 const pullRequestsScriptsFolder = '../generated/pull-requests-scripts/';
